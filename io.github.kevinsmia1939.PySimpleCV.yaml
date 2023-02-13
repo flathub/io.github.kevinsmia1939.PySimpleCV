@@ -18,8 +18,8 @@ modules:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/ce/b8/c170db50ec49d5845bd771bc5549fe734ee73083c5c52791915f95d8e2bc/numpy-1.24.1.tar.gz
-        sha256: 2386da9a471cc00a1f47845e27d916d5ec5346ae9696e01a8a34760858fe9dd2
+        url: https://files.pythonhosted.org/packages/e4/a9/6704bb5e1d1d778d3a6ee1278a8d8134f0db160e09d52863a24edb58eab5/numpy-1.24.2.tar.gz
+        sha256: 003a9f530e880cb2cd177cba1af7220b9aa42def9c4afc2a2fc3ee6be7eb2b22
         x-checker-data:
           type: pypi
           name: numpy
@@ -58,8 +58,8 @@ modules:
         url: http://www.qhull.org/download/qhull-2020-src-8.0.2.tgz
         sha256: b5c2d7eb833278881b952c8a52d20179eab87766b00b865000469a45c1838b7e
       - type: archive
-        url: https://files.pythonhosted.org/packages/23/6d/2917ed23b17a8c4d1d59974a574cae0a365c392ba8820c8824b03a02f376/matplotlib-3.6.3.tar.gz
-        sha256: 1f4d69707b1677560cd952544ee4962f68ff07952fb9069ff8c12b56353cb8c9
+        url: https://files.pythonhosted.org/packages/65/c2/34158ff731a12802228434e8d17d2ebb5097394ab9d065205cc262cf2a6f/matplotlib-3.7.0.tar.gz
+        sha256: 8f6efd313430d7ef70a38a3276281cb2e8646b3a22b3b21eb227da20e15e6813
         x-checker-data:
           type: pypi
           name: matplotlib
