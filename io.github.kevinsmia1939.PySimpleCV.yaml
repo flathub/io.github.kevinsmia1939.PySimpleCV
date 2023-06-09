@@ -142,8 +142,8 @@ modules:
       - install -Dm644 data/${FLATPAK_ID}.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
     sources:
       - type: archive
-        url: https://github.com/kevinsmia1939/PySimpleCV/archive/refs/tags/v1.0.2.tar.gz
-        sha256: 277fb4284d6b21c7fbe8dcf2f000440bc2963de6b54a5e709ee6ff9153509c95
+        url: https://github.com/kevinsmia1939/PySimpleCV/archive/refs/tags/v1.0.3.tar.gz
+        sha256: 1aa0b42a2725123d69c7fc04f1f72936c1dde13128b7c8b83dd0fc74540992a9
       # - type: git
       #   url: https://github.com/kevinsmia1939/PySimpleCV
       #   commit: 9ef70a485e7e3cdfdd5257984e03c1d97d286e61
