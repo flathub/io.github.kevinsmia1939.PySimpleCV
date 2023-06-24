@@ -111,8 +111,8 @@ modules:
         --no-build-isolation
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/1c/14/f9ad9b26c78714fa0b7da16fb17532654576150f9e84b9e257267066a812/impedance-1.5.0.tar.gz
-        sha256: f616a7d60780f6941ea20e153a7efe561f6d402a1eb34ff941264a2d2eb5f5eb
+        url: https://files.pythonhosted.org/packages/70/e0/b5965369e8c0cc97c289f391be383baecaf18d22df16cdf808edb47da1e8/impedance-1.6.0.tar.gz
+        sha256: 0f1e03d4bfcc17672644e3f71dae6cccc7efe6b023d5ccc827d12352e6238767
         x-checker-data:
           type: pypi
           name: impedance
