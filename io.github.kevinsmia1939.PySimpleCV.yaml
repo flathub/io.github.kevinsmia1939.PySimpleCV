@@ -22,26 +22,26 @@ modules:
         url: https://github.com/mesonbuild/meson.git
         tag: '1.1.1'
 
-  # - name: openblas # dependency for scipy
-  #   no-autogen: true
-  #   make-args:
-  #     - DYNAMIC_ARCH=1
-  #     - DYNAMIC_OLDER=1
-  #     - FC=gfortran
-  #     - NO_CBLAS=1
-  #     - NO_LAPACKE=1
-  #     - TARGET=GENERIC
-  #     - USE_OPENMP=0    # OpenMP off by default, this hack skips 'test_fork' which crashes on i386
-  #   make-install-args:
-  #     - PREFIX=/app
-  #   sources:
-  #     - type: archive
-  #       url: https://github.com/xianyi/OpenBLAS/archive/v0.3.23.tar.gz
-  #       sha256: 5d9491d07168a5d00116cdc068a40022c3455bf9293c7cb86a65b1054d7e5114
-  #       x-checker-data:
-  #         type: anitya
-  #         project-id: 2540
-  #         url-template: https://github.com/xianyi/OpenBLAS/archive/v$version.tar.gz
+  - name: openblas # dependency for scipy
+    no-autogen: true
+    make-args:
+      - DYNAMIC_ARCH=1
+      - DYNAMIC_OLDER=1
+      - FC=gfortran
+      - NO_CBLAS=1
+      - NO_LAPACKE=1
+      - TARGET=GENERIC
+      - USE_OPENMP=0    # OpenMP off by default, this hack skips 'test_fork' which crashes on i386
+    make-install-args:
+      - PREFIX=/app
+    sources:
+      - type: archive
+        url: https://github.com/xianyi/OpenBLAS/archive/v0.3.23.tar.gz
+        sha256: 5d9491d07168a5d00116cdc068a40022c3455bf9293c7cb86a65b1054d7e5114
+        x-checker-data:
+          type: anitya
+          project-id: 2540
+          url-template: https://github.com/xianyi/OpenBLAS/archive/v$version.tar.gz
 
   - python-tkinter.yaml
 
