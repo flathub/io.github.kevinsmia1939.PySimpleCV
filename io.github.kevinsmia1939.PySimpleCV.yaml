@@ -80,8 +80,8 @@ modules:
       - install -Dm644 data/${FLATPAK_ID}.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
     sources:
       - type: archive
-        url: https://github.com/kevinsmia1939/PySimpleCV/archive/refs/tags/v1.0.5.tar.gz
-        sha256: 5878c5a3468f61870f2fe43c92baadaf9d1e8cc96e493079b2d174fbe7ec90e7
+        url: https://github.com/kevinsmia1939/PySimpleCV/archive/refs/tags/v1.0.6.tar.gz
+        sha256: 0a7705028adc5a74f2e230aa63c388b1b96c1a9b086e7a754cdd5a3c08ad4b40
         x-checker-data:
           type: anitya
           project-id: 303771
