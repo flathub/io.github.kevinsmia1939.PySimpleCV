@@ -41,9 +41,26 @@ modules:
           url-template: https://github.com/xianyi/OpenBLAS/archive/v$version.tar.gz
 
   - python-tkinter.yaml
+    # python3 flatpak-pip-generator tomli setuptools_scm_git_archive setuptools_scm pybind11 certifi pyparsing pyproject_metadata -o numpy_deps && fb
+  - numpy_deps.json
+
+  - name: python-numpy
+    buildsystem: simple
+    build-options:
+      ldflags: -lgfortran
+    build-commands:
+      - pip3 install --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST}
+        --no-build-isolation .
+    sources:
+      - type: archive
+        url: https://files.pythonhosted.org/packages/78/23/f78fd8311e0f710fe1d065d50b92ce0057fe877b8ed7fd41b28ad6865bfc/numpy-1.26.1.tar.gz
+        sha256: c8c6c72d4a9f831f328efb1312642a1cafafaa88981d9ab76368d50d07d93cbe
+        x-checker-data:
+          type: pypi
+          name: numpy
 
     # Update python modules command.
-    # python3 flatpak-pip-generator tomli setuptools_scm_git_archive setuptools_scm pybind11 certifi pyparsing pillow packaging cppy kiwisolver fonttools cycler meson-python contourpy openpyxl versioneer pandas pythran scipy statsmodels setuptools_rust PySimpleGUI pyparsing==3.0.9 -o python_dependencies && fb
+    # python3 flatpak-pip-generator pillow packaging cppy kiwisolver fonttools cycler meson-python contourpy openpyxl versioneer pandas pythran statsmodels setuptools_rust PySimpleGUI pyparsing -o python_dependencies && fb
   - python_dependencies.json
 
   - name: python3-matplotlib
