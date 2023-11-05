@@ -20,20 +20,17 @@ modules:
     sources:
       - type: git
         url: https://github.com/mesonbuild/meson.git
-        tag: 1.1.1
+        tag: 1.2.3
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)$
 
-  - name: openblas # dependency for scipy
-    no-autogen: true
-    make-args:
-      - DYNAMIC_ARCH=1
-      - DYNAMIC_OLDER=1
-      - FC=gfortran
-      - NO_CBLAS=1
-      - NO_LAPACKE=1
-      - TARGET=GENERIC
-      - USE_OPENMP=0    # OpenMP off by default, this hack skips 'test_fork' which crashes on i386
-    make-install-args:
-      - PREFIX=/app
+  - name: OpenBLAS
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DBUILD_TESTING:BOOL=OFF
+      - -DDYNAMIC_ARCH:BOOL=ON
     sources:
       - type: archive
         url: https://github.com/xianyi/OpenBLAS/archive/v0.3.24.tar.gz
@@ -44,9 +41,26 @@ modules:
           url-template: https://github.com/xianyi/OpenBLAS/archive/v$version.tar.gz
 
   - python-tkinter.yaml
+    # python3 flatpak-pip-generator tomli setuptools_scm_git_archive setuptools_scm pybind11 certifi pyparsing pyproject_metadata -o numpy_deps && fb
+  - numpy_deps.json
+
+  - name: python-numpy
+    buildsystem: simple
+    build-options:
+      ldflags: -lgfortran
+    build-commands:
+      - pip3 install --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST}
+        --no-build-isolation .
+    sources:
+      - type: archive
+        url: https://files.pythonhosted.org/packages/78/23/f78fd8311e0f710fe1d065d50b92ce0057fe877b8ed7fd41b28ad6865bfc/numpy-1.26.1.tar.gz
+        sha256: c8c6c72d4a9f831f328efb1312642a1cafafaa88981d9ab76368d50d07d93cbe
+        x-checker-data:
+          type: pypi
+          name: numpy
 
     # Update python modules command.
-    # python3 flatpak-pip-generator tomli setuptools_scm_git_archive setuptools_scm pybind11 certifi pyparsing pillow packaging cppy kiwisolver fonttools cycler meson-python contourpy openpyxl versioneer pandas pythran scipy statsmodels setuptools_rust PySimpleGUI pyparsing==3.0.9 -o python_dependencies && fb
+    # python3 flatpak-pip-generator pillow packaging cppy kiwisolver fonttools cycler meson-python contourpy openpyxl versioneer pandas pythran statsmodels setuptools_rust PySimpleGUI pyparsing -o python_dependencies && fb
   - python_dependencies.json
 
   - name: python3-matplotlib
@@ -64,8 +78,8 @@ modules:
         url: http://www.qhull.org/download/qhull-2020-src-8.0.2.tgz
         sha256: b5c2d7eb833278881b952c8a52d20179eab87766b00b865000469a45c1838b7e
       - type: archive
-        url: https://files.pythonhosted.org/packages/e5/59/b859fa2539b4121b016ea85758188203522fc12b0711de8b247cfec3cdac/matplotlib-3.7.2.tar.gz
-        sha256: a8cdb91dddb04436bd2f098b8fdf4b81352e68cf4d2c6756fcc414791076569b
+        url: https://files.pythonhosted.org/packages/b4/1b/1b80fcc6b7f33a4c7fa025e944416f8b63fa8d278fad32470c82a2edf319/matplotlib-3.8.1.tar.gz
+        sha256: 044df81c1f6f3a8e52d70c4cfcb44e77ea9632a10929932870dfaa90de94365d
         x-checker-data:
           type: pypi
           name: matplotlib
@@ -80,8 +94,8 @@ modules:
       - install -Dm644 data/${FLATPAK_ID}.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
     sources:
       - type: archive
-        url: https://github.com/kevinsmia1939/PySimpleCV/archive/refs/tags/v1.0.6.tar.gz
-        sha256: 0a7705028adc5a74f2e230aa63c388b1b96c1a9b086e7a754cdd5a3c08ad4b40
+        url: https://github.com/kevinsmia1939/PySimpleCV/archive/refs/tags/v1.0.7.tar.gz
+        sha256: e5d7120675afb92237a030f595beeb8fbb941b0cb4e46d9dddd262b756cb4850
         x-checker-data:
           type: anitya
           project-id: 303771
