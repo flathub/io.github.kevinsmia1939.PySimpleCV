@@ -25,6 +25,7 @@ modules:
           type: git
           tag-pattern: ^([\d.]+)$
 
+        commit: 84e437179da05db10aa2457322c54f4ec8be61f1
   - name: OpenBLAS
     buildsystem: cmake-ninja
     builddir: true
