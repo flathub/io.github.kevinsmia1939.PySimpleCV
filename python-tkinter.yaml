@@ -37,8 +37,8 @@ modules:
       - /man
     sources:
       - type: archive
-        url: https://prdownloads.sourceforge.net/tcl/tk8.6.13-src.tar.gz
-        sha256: 2e65fa069a23365440a3c56c556b8673b5e32a283800d8d9b257e3f584ce0675
+        url: https://prdownloads.sourceforge.net/tcl/tk9.0.0-src.tar.gz
+        sha256: f166e3c20773c82243f753cef4b091d05267cb7f87da64be88cb2ca5a2ba027e
         x-checker-data:
           type: anitya
           project-id: 11426
