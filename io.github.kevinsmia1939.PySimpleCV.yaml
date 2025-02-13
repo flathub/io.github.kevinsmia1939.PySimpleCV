@@ -20,12 +20,12 @@ modules:
     sources:
       - type: git
         url: https://github.com/mesonbuild/meson.git
-        tag: 1.2.3
-        commit: 84e437179da05db10aa2457322c54f4ec8be61f1
+        tag: 1.7.0
+        commit: 897b6fcdf9adfa87fe60f420e1b483f0f49af7a3
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
-          
+
   - name: OpenBLAS
     buildsystem: cmake-ninja
     builddir: true
@@ -34,8 +34,8 @@ modules:
       - -DDYNAMIC_ARCH:BOOL=ON
     sources:
       - type: archive
-        url: https://github.com/xianyi/OpenBLAS/archive/v0.3.24.tar.gz
-        sha256: ceadc5065da97bd92404cac7254da66cc6eb192679cf1002098688978d4d5132
+        url: https://github.com/xianyi/OpenBLAS/archive/v0.3.29.tar.gz
+        sha256: 38240eee1b29e2bde47ebb5d61160207dc68668a54cac62c076bb5032013b1eb
         x-checker-data:
           type: anitya
           project-id: 2540
@@ -79,8 +79,8 @@ modules:
         url: http://www.qhull.org/download/qhull-2020-src-8.0.2.tgz
         sha256: b5c2d7eb833278881b952c8a52d20179eab87766b00b865000469a45c1838b7e
       - type: archive
-        url: https://files.pythonhosted.org/packages/b4/1b/1b80fcc6b7f33a4c7fa025e944416f8b63fa8d278fad32470c82a2edf319/matplotlib-3.8.1.tar.gz
-        sha256: 044df81c1f6f3a8e52d70c4cfcb44e77ea9632a10929932870dfaa90de94365d
+        url: https://files.pythonhosted.org/packages/68/dd/fa2e1a45fce2d09f4aea3cee169760e672c8262325aa5796c49d543dc7e6/matplotlib-3.10.0.tar.gz
+        sha256: b886d02a581b96704c9d1ffe55709e49b4d2d52709ccebc4be42db856e511278
         x-checker-data:
           type: pypi
           name: matplotlib
